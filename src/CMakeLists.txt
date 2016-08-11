@@ -12,7 +12,7 @@ endif()
 set(MULTIVERSO_SRC actor.cpp communicator.cpp controller.cpp dashboard.cpp multiverso.cpp net.cpp node.cpp server.cpp table.cpp table/array_table.cpp table/matrix_table.cpp table/sparse_matrix_table.cpp table/matrix.cpp timer.cpp  updater/updater.cpp util/configure.cpp io/hdfs_stream.cpp io/io.cpp io/local_stream.cpp util/log.cpp util/net_util.cpp util/quantization_util.cpp worker.cpp zoo.cpp c_api.cpp util/allocator.cpp table_factory.cpp blob.cpp)
 
 add_library(multiverso SHARED ${MULTIVERSO_SRC})
-target_link_libraries(multiverso ${MPI_LIBRARY})
+target_link_libraries(multiverso ${MPI_LIBRARY} -lpthread)
 
 install (TARGETS multiverso DESTINATION lib)
 if (UNIX)
